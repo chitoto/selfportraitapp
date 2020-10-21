@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :feeds
   root to: 'users#new'
+  resources :feeds do
+    collection do
+      post :confirm
+    end
+  end
   resources :pictures do
     collection do
       post :confirm
