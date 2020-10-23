@@ -5,23 +5,31 @@
     <tr>
       <th class="title">タイトル</th>
       <th class="title">投稿者：<%= picture.user.name %></th>
+      <th></th>
     </tr>
     <tr>
       <td colspan="2" class="title"><%= picture.title %></td>
+      <th>Image</th>
     </tr>
     <tr>
       <th class="content" colspan="2">内容</th>
+      <td rowspan="2"><img src="<%= picture.image %>"</td>
     </tr>
     <tr>
-      <td class="content"><%= picture.content %></td>
-      <td class="content"><%= picture.image %></td>
+      <td class="content" colspan="2"><%= picture.content %></td>
     </tr>
     <tr class="under_tr">
-      <td class="button"><%= link_to '詳細', picture_path(picture.id), class: 'btn btn-info' %></td>
-      <td class="button"><%= link_to "編集", edit_picture_path(picture.id),
-         data: { confirm: '本当に編集していいですか？' }, class: 'btn btn-warning' %>
-         <%= link_to '削除', picture_path(picture.id),
-         method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %></td>
+      <td class="button">
+        <%= link_to '詳細', picture_path(picture.id), class: 'btn btn-info' %>
+      </td>
+      <td class="button">
+        <%= link_to "編集", edit_picture_path(picture.id),
+        data: { confirm: '本当に編集していいですか？' }, class: 'btn btn-warning' %>
+      </td>
+      <td class="button">
+        <%= link_to '削除', picture_path(picture.id),method: :delete,
+        data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %>
+       </td>
     </tr>
   <% end %>
 

@@ -2,8 +2,7 @@
 <p>タイトル: <%= @picture.title %></p>
 <p>内容: <%= @picture.content %></p>
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Image:</strong>
+<p>Image:
   <%= image_tag @picture.image.url %>
 </p>
 <% unless @picture.user_id == current_user.id %>
