@@ -1,11 +1,19 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
   def index
-    @pictures = Picture.all
+    if params[:title_key]
+      @pictures = Picture.where('title LIKE ?', "%#{params[:title_key]}%")
+    else
+      @pictures = Picture.all
+    end
   end
 
   def new
-    @picture = Picture.new
+    if params[:back]
+     @picture = Picture.new(picture_params)
+    else
+     @picture = Picture.new
+   end
   end
 
   def create
@@ -44,11 +52,12 @@ class PicturesController < ApplicationController
   def confirm
     @picture = current_user.pictures.build(picture_params)
     render :new if @picture.invalid?
+    
   end
 
   private
   def picture_params
-    params.require(:picture).permit(:title, :content)
+    params.require(:picture).permit(:title, :content, :image, :image_cache)
   end
 
   def set_picture

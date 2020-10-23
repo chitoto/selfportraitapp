@@ -4,22 +4,63 @@
     <title>Selfportraitapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-    <%= yield %>
+    <header>
+      <nav class='navbar navbar-inverse navbar-fixed-top'>
+        <div class='container row'>
+          <div class='navbar-header col-xs-9'>
+            <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria<%  %>expanded='false' aria-controls='navbar'>
+              <span class='sr-only'>navigation</span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+            </button>
+            <div>
+              <span id="logo"><%= image_tag 'app_logo.svg', width:'50px', height:'50px', alt: 'ロゴ' %></span>
+              <span id="search"><%= image_tag 'search.svg', width:'20px', height:'20px', alt: '検索' %>
+                <%= form_tag('/pictures', method: 'get') do %>
+                <%= label_tag(:title_key, 'Search title:') %>
+                <%= text_field_tag(:title_key) %>
+                <%= submit_tag('Search') %> <%= link_to 'Clear', pictures_path %>
+                <% end %>
+
+              </span>
+              <div id='navbar' class='collapse navbar-collapse'>
+                <ul class='nav navbar-nav'>
+                  <li><a href="/pictures"><%= image_tag 'home.svg', width:'30px', height:'30px', alt: 'home' %></a></li>
+                  <li><a href="#"><%= image_tag 'friend.svg', width:'30px', height:'30px', alt: 'friend' %></a></li>
+                  <li><a href="#"><%= image_tag 'watch.svg', width:'30px', height:'30px', alt: 'watch' %></a></li>
+                  <li><a href="#"><%= image_tag 'shop.svg', width:'30px', height:'30px', alt: 'shop' %></a></li>
+                  <li><a href="#"><%= image_tag 'group.svg', width:'30px', height:'30px', alt: 'group' %></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="Login col-xs-3">
+            <% flash.each do |key, value| %>
+              <%= content_tag(:div, value, class: "#{key}") %>
+            <% end %>
+            <% if logged_in? %>
+              <%= link_to "Profile", user_path(current_user.id), class: "btn btn-success" %>
+              <%= link_to "Logout", session_path(current_user.id), method: :delete, class: "btn btn-success" %>
+            <% else %>
+              <%= link_to "Sign up", new_user_path, class: "btn btn-success" %>
+              <%= link_to "Login", new_session_path, class: "btn btn-success" %>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container row">
+      <div class="main_contents col-md-offset-3 col-xs-12">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

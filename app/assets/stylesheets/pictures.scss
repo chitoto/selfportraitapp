@@ -1,3 +1,43 @@
-// Place all the styles related to the pictures controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #F0F2F5;
+  color: #1c1e21;
+  margin: 33px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.main_contents{
+ width: 600px;
+}
+
+table{
+  width: 580px;
+  height: 100%;
+}
+
+th,td{
+  background-color: #fff;
+}
+
+.title{
+  padding: 10px;
+  margin-top: 30px;
+}
+
+td.title{
+  padding: 10px;
+}
+
+.content{
+  width: 100%;
+  padding: 10px;
+}
+
+.button{
+  padding: 10px;
+
+}
+
+.under_tr{
+  border-bottom: 20px solid #F0F2F5;
+}
