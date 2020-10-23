@@ -2,8 +2,9 @@
 <p>タイトル: <%= @picture.title %></p>
 <p>内容: <%= @picture.content %></p>
 <p id="notice"><%= notice %></p>
+
 <p>Image:
-  <%= image_tag @picture.image.url %>
+  <%= image_tag @picture.image.url if @picture.image && @picture.image.url %>
 </p>
 <% unless @picture.user_id == current_user.id %>
   <% if @favorite.present? %>
