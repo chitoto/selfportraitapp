@@ -1,7 +1,10 @@
-<h1><%= @user.name %>のページ</h1>
-<p>メールアドレス: <%= @user.email %></p>
-<% if logged_in? %>
-  <%= link_to "ブログ一覧へ！", pictures_path, class: 'btn btn-info' %>
-<% else %>
-  <%= link_to "ログイン", new_session_path, class: 'btn btn-info' %>
-<% end %>
+<div class="fuield">
+  <span class="notice"><%= notice %></span>
+  <h1><%= @user.name %>のページ</h1>
+  <p>メールアドレス: <%= @user.email %></p>
+  <% if logged_in? %>
+    <%= link_to "ブログ一覧へ！", pictures_path, class: 'btn btn-info' %>
+  <% else %>
+    <%= link_to "ログイン", new_session_path, class: 'btn btn-info' %>
+  <% end %>
+</div>

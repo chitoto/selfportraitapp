@@ -13,7 +13,7 @@ class PicturesController < ApplicationController
      @picture = Picture.new(picture_params)
     else
      @picture = Picture.new
-   end
+    end
   end
 
   def create
@@ -24,7 +24,8 @@ class PicturesController < ApplicationController
       if @picture.save
         redirect_to pictures_path, notice: "作成しました！"
       else
-      render :new
+        flash.now[:notice] = '作成に失敗しました'
+        render :new
       end
     end
   end

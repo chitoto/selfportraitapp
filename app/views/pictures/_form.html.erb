@@ -18,9 +18,9 @@
     <%= form.text_area :content %>
   </div>
   <div class="field confirm_img">
-    <%= form.label :image %>
+    <%= form.label :image %><br>
     <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
-    <%= form.file_field :image %>
+    <span><%= form.file_field :image %></span>
     <%= form.hidden_field :image_cache %>
   </div>
   <br>

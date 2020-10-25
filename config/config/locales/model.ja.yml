@@ -1,0 +1,26 @@
+ja:
+  activerecord: アクティブレコード
+    models: モデル
+      favorite: お気に入り
+      picture: 画像
+      blog: ブログ
+      user: ユーザー
+    attributes: 属性
+      favorite: お気に入り
+        user_id: ユーザーID
+        picture_id: 画像ID
+      picture: 画像
+        title: タイトル
+        content: 内容
+        user_id: ユーザーID
+      blog: ブログ
+        title: タイトル
+        content: 内容
+      user: ユーザー
+        title: タイトル
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶

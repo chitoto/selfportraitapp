@@ -34,9 +34,9 @@ Latest commit eb6ef3b on 6 Jun 2019
 
 ---
 ja:
-  activerecord:
-    errors:
-      messages:
+  activerecord: "アクティブレコード"
+    errors: "複数エラー"
+      messages: 'メッセージ'
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
@@ -252,3 +252,4 @@ Training
 Blog
 About
 image
+picture
