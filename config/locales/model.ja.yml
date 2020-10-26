@@ -1,22 +1,19 @@
 ja:
-  activerecord: アクティブレコード
-    models: モデル
+  activerecord:
+    models:
       favorite: お気に入り
-      picture: 画像
-      blog: ブログ
+      picture: 投稿
       user: ユーザー
-    attributes: 属性
-      favorite: お気に入り
+    attributes:
+      favorite:
         user_id: ユーザーID
         picture_id: 画像ID
-      picture: 画像
+      picture:
         title: タイトル
         content: 内容
+        image: 画像
         user_id: ユーザーID
-      blog: ブログ
-        title: タイトル
-        content: 内容
-      user: ユーザー
+      user:
         title: タイトル
         name: 名前
         email: メールアドレス
@@ -24,3 +21,16 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "名前が入力されていません"
+            email:
+              blank: "メールアドレスが入力されていません"

@@ -1,42 +1,8 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
-
-@chitoto
-svenfuchs
-/
-rails-i18n
-86
-3.6k2.7k
-Code
-Issues
-39
-Pull requests
-6
-Actions
-Projects
-Wiki
-Security
-Insights
-rails-i18n/rails/locale/ja.yml
-@Samemura
-Samemura fix currency format.
-…
-Latest commit eb6ef3b on 6 Jun 2019
- History
- 21 contributors
-@amatsuda@kuroda@tigrish@pyonnuka@znz@Kagetsuki@ypresto@weppos@sakuro@Silex@kuboon@Samemura
-207 lines (207 sloc)  5 KB
-
 ---
 ja:
-  activerecord: "アクティブレコード"
-    errors: "複数エラー"
-      messages: 'メッセージ'
+  activerecord:
+    errors:
+      messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
@@ -239,17 +205,3 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-image
-picture
