@@ -25,10 +25,12 @@
           <th>投稿者：<%= picture.user.name %></th>
           <td>
             <%= link_to '詳細', picture_path(picture.id), class: 'btn btn-info' %>
-            <%= link_to "編集", edit_picture_path(picture.id),
-            data: { confirm: '本当に編集していいですか？' }, class: 'btn btn-warning' %>
-            <%= link_to '削除', picture_path(picture.id),method: :delete,
-            data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %>
+            <% if picture.user_id == current_user.id %>
+              <%= link_to "編集", edit_picture_path(picture.id),
+              data: { confirm: '本当に編集していいですか？' }, class: 'btn btn-warning' %>
+              <%= link_to '削除', picture_path(picture.id),method: :delete,
+              data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %>
+            <% end %>
           </td>
         </tr>
         <tr>
