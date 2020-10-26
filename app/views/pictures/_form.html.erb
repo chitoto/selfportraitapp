@@ -1,4 +1,11 @@
 <%= form_with(model: @picture, local: true ,url: choose_new_or_edit ) do |form| %>
+<% if flash[:error].present? %>
+    <ul class="errors">
+      <% flash[:error].each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">
       <h2><%= @picture.errors.count %>件のエラーがあります。</h2>
@@ -25,6 +32,13 @@
   </div>
   <br>
   <%= form.submit %>
+<% end %>
+<br>
+<%= form_with(model: @picture, url: new_picture_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "戻る", name: "back" %>
 <% end %>
 <br>
 <%= link_to "ブログ一覧画面にもどる", pictures_path %>

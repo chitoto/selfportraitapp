@@ -52,7 +52,9 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = current_user.pictures.build(picture_params)
-    render :new if @picture.invalid?
+    if @picture.invalid?
+      redirect_to new_picture_path, flash: { error: @picture.errors.full_messages }
+    end
   end
 
   private
